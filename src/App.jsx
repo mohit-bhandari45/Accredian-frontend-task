@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Modal from './components/Modal';
 import ReferForm from './components/ReferForm';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useBooleanContext } from './context/context';
 
 function App() {
