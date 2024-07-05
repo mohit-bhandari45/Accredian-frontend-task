@@ -10,7 +10,7 @@ const ReferForm = () => {
 
   const handleSubmit =async (e) => {
     e.preventDefault();
-    let req=await fetch("http://localhost:5000/api/referrals",{
+    let req=await fetch("https://accredian-backend-task-mohit-bhandari45.onrender.com/api/referrals",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
