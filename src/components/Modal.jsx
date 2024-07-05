@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useBooleanContext } from '../context/context';
 
 const Modal = ({ children, onClose }) => {
+  const { toastBool } = useBooleanContext();
+
+  useEffect(() => {
+    if (toastBool) {
+      onClose()
+    }
+  }, [toastBool])
+
+
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-lg p-6">

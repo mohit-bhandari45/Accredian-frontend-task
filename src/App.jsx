@@ -7,7 +7,7 @@ import { useBooleanContext } from './context/context';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { toastBool } = useBooleanContext()
+  const { toastBool,setToastBool } = useBooleanContext()
 
   const toastOptions = {
     position: "top-right",
@@ -20,8 +20,9 @@ function App() {
   useEffect(() => {
     if (toastBool) {
       toast.success("Referred Successfully", toastOptions)
+      setToastBool(false)
     }
-  }, [toast])
+  }, [toastBool])
 
 
   const openModal = () => {

@@ -21,6 +21,7 @@ const ReferForm = () => {
     })
     if(req.status===200){
       setToastBool(true)
+      console.log(await req.json())
     }
   };
 
