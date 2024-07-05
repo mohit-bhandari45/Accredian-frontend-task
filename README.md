@@ -18,7 +18,7 @@ Then navigate to the cloned repository on your local system
 cd Accredian-frontend-task
 ```
 
-Install all the packeages by npm i and run server by running the commands.
+Install all the packages by npm i and run app by running the commands.
 
 ``` 
 npm i
