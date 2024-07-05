@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useBooleanContext } from '../context/context';
 
 const ReferForm = () => {
+  const { setToastBool } = useBooleanContext()
   const [formData, setFormData] = useState({ name: '', email: '', friendName: '', friendEmail: '', message: '' });
 
   const handleChange = (e) => {
@@ -17,8 +19,9 @@ const ReferForm = () => {
       },
       body:JSON.stringify(formData)
     })
-    console.log(await req.json())
-    console.log('Form submitted', formData);
+    if(req.status===200){
+      setToastBool(true)
+    }
   };
 
   return (

@@ -1,9 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from './components/Modal';
 import ReferForm from './components/ReferForm';
+import { ToastContainer, toast } from 'react-toastify';
+import { useBooleanContext } from './context/context';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { toastBool } = useBooleanContext()
+
+  const toastOptions = {
+    position: "top-right",
+    autoClose: 3000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "dark",
+    closeOnClick: true,
+  }
+  useEffect(() => {
+    if (toastBool) {
+      toast.success("Referred Successfully", toastOptions)
+    }
+  }, [toast])
+
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -101,6 +119,7 @@ function App() {
       {isModalOpen && <Modal onClose={closeModal}>
         <ReferForm />
       </Modal>}
+      <ToastContainer />
     </div>
   );
 }
